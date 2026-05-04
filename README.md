@@ -1,0 +1,1 @@
+# plaukupasaka-email-assets
