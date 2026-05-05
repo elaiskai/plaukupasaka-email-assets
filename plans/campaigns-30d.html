@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaukų Pasaka — 30 d. kampanijų planas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background-color: #faf9f6; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1F23; line-height: 1.6; font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 64px; }
+
+  /* Header */
+  .header { text-align: center; padding: 24px 0 40px; border-bottom: 1px solid #e9e3e3; margin-bottom: 40px; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #C07682; margin-bottom: 14px; display: block; }
+  h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: #1A1F23; margin-bottom: 12px; }
+  .subtitle { font-size: 16px; color: #5a5358; max-width: 540px; margin: 0 auto; }
+  .meta { display: inline-flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
+  .meta span { padding: 6px 14px; background: #f4eeef; border-radius: 999px; font-size: 13px; color: #8E7B5C; }
+
+  /* Campaign cards */
+  .campaigns { display: flex; flex-direction: column; gap: 16px; }
+  .camp {
+    background: #ffffff; border: 1px solid #ede5e5; border-radius: 10px;
+    padding: 22px 24px; display: grid;
+    grid-template-columns: 80px 1fr; gap: 24px; align-items: start;
+  }
+  .camp-num {
+    width: 56px; height: 56px; border-radius: 50%; background: #D68C98;
+    color: #faf9f6; display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 22px;
+  }
+  .camp-body { display: flex; flex-direction: column; gap: 12px; }
+  .camp-meta {
+    display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; align-items: center;
+  }
+  .camp-meta .date {
+    font-weight: 700; color: #1A1F23; font-size: 14px;
+    padding: 4px 12px; background: #f4eeef; border-radius: 999px;
+  }
+  .camp-meta .time {
+    padding: 4px 10px; border: 1px solid #ede5e5; border-radius: 999px; color: #5a5358;
+  }
+  .camp-meta .type {
+    padding: 4px 10px; border-radius: 999px; font-weight: 600; color: #faf9f6;
+  }
+  .type.educ { background: #C07682; }
+  .type.promo { background: #D68C98; }
+  .type.xsell { background: #E0B252; color: #1A1F23; }
+  .type.reeng { background: #c9d3c8; color: #1A1F23; }
+  .type.soft { background: #8E7B5C; }
+
+  .camp-meta .seg {
+    padding: 4px 10px; background: #1A1F23; color: #faf9f6;
+    border-radius: 999px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .camp h3 {
+    font-size: 19px; font-weight: 700; color: #1A1F23;
+    line-height: 1.3; letter-spacing: -0.01em;
+  }
+  .camp .pre {
+    font-size: 14px; color: #5a5358; font-style: italic; margin-top: -4px;
+  }
+  .camp .why {
+    font-size: 13.5px; color: #5a5358; line-height: 1.6;
+    padding-top: 6px; border-top: 1px solid #f4eeef;
+  }
+  .camp .why strong { color: #1A1F23; font-weight: 600; }
+
+  /* Summary cards */
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
+  .stat-card {
+    background: #ffffff; border: 1px solid #ede5e5; border-radius: 8px;
+    padding: 16px 14px; text-align: center;
+  }
+  .stat-card strong {
+    display: block; font-size: 28px; font-weight: 700; color: #C07682; line-height: 1; margin-bottom: 4px;
+  }
+  .stat-card span {
+    font-size: 12px; color: #5a5358; line-height: 1.3;
+  }
+
+  /* Approval */
+  .approval {
+    background: #ffffff; border: 2px solid #D68C98; border-radius: 12px;
+    padding: 26px 28px; margin-top: 40px;
+  }
+  .approval h2 { color: #C07682; font-size: 22px; margin-bottom: 14px; }
+  .approval p { font-size: 14.5px; color: #5a5358; margin-bottom: 0; }
+
+  .footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid #e9e3e3; text-align: center; font-size: 12px; color: #8E7B5C; }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 48px; }
+    h1 { font-size: 28px; }
+    .camp { grid-template-columns: 1fr; padding: 18px; }
+    .camp-num { width: 44px; height: 44px; font-size: 17px; }
+    .summary { grid-template-columns: 1fr 1fr; }
+    .stat-card strong { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <span class="label">30 dienų planas</span>
+    <h1>Kampanijų grafikas</h1>
+    <p class="subtitle">8 kampanijos per 30 dienų · segmentuotos pagal įsitraukimą ir pirkimo elgseną</p>
+    <div class="meta">
+      <span>📅 2026-05-05 → 2026-06-04</span>
+      <span>📨 8 siuntimai</span>
+      <span>👥 4 segmentai</span>
+    </div>
+  </header>
+
+  <!-- Summary cards -->
+  <div class="summary">
+    <div class="stat-card">
+      <strong>5</strong>
+      <span>Engaged 60d<br/>(core)</span>
+    </div>
+    <div class="stat-card">
+      <strong>1</strong>
+      <span>Pirkėjos<br/>(cross-sell)</span>
+    </div>
+    <div class="stat-card">
+      <strong>1</strong>
+      <span>Lapsed 60–180d<br/>(re-engage)</span>
+    </div>
+    <div class="stat-card">
+      <strong>1</strong>
+      <span>Engaged 90d<br/>(plataus)</span>
+    </div>
+  </div>
+
+  <!-- Campaigns -->
+  <section style="margin-top:40px;">
+    <div class="campaigns">
+
+      <article class="camp">
+        <div class="camp-num">1</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Antr · 2026-05-05</span>
+            <span class="time">18:00</span>
+            <span class="type educ">Edukacinis</span>
+            <span class="seg">Engaged 60d</span>
+          </div>
+          <h3>K-beauty pavasariui — 3 klaidos, kurių klientės dažniausiai daro</h3>
+          <p class="pre">„Pavasarinis sezonas keičia plaukų poreikius. Štai į ką verta atkreipti dėmesį."</p>
+          <p class="why"><strong>Kodėl pradedam šituo:</strong> edukacija atstato įsitraukimo signalus po žemo CTR mėnesio. Karolinos balsas + numeruotas formatas — formulė, kuri 03-27 davė 54 % atidarymų.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">2</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Penkt · 2026-05-08</span>
+            <span class="time">11:00</span>
+            <span class="type xsell">Cross-sell</span>
+            <span class="seg">Pirkėjos (1×+)</span>
+          </div>
+          <h3>Tinka prie Tavo CP-1 — Karolinos rekomendacija</h3>
+          <p class="pre">„Jeigu naudojate CP-1, šios trys priemonės dera tobulai."</p>
+          <p class="why"><strong>Kodėl Pirkėjos:</strong> SKU porų logika padidina AOV ir antrojo pirkimo greitį. Pirkėjos jau pažįsta brand'ą — jiems reikia tik konkrečios rekomendacijos.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">3</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Antr · 2026-05-12</span>
+            <span class="time">18:00</span>
+            <span class="type educ">Edukacinis</span>
+            <span class="seg">Engaged 60d</span>
+          </div>
+          <h3>Kodėl pavasarį plaukai krenta — ir ką su tuo padaryti</h3>
+          <p class="pre">„Sezoninis plaukų ciklas — viskas, ką norėjote sužinoti."</p>
+          <p class="why"><strong>Kodėl tema:</strong> sezoninis problemų taikymas. Pavasarinis plaukų slinkimas yra populiari paieška LT — atsakyti su brand'o žinutėmis.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">4</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Ketv · 2026-05-14</span>
+            <span class="time">19:00</span>
+            <span class="type promo">Promo</span>
+            <span class="seg">Engaged 60d</span>
+          </div>
+          <h3>Pavasario rinkinys −15 % — savaitės pasiūlymas</h3>
+          <p class="pre">„Trys priemonės, paruoštos vienam savaitės sienai — su trumpalaikiu nuolaidos kodu."</p>
+          <p class="why"><strong>Kodėl po edukacijos:</strong> dvi edukacinės kampanijos pakėlė įsitraukimą — dabar galime konvertuoti su konkrečiu pasiūlymu. Promo veikia geriausiai po šiltos auditorijos atstatymo.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">5</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Sek · 2026-05-18</span>
+            <span class="time">19:00</span>
+            <span class="type reeng">Re-engagement</span>
+            <span class="seg">Lapsed 60–180d</span>
+          </div>
+          <h3>Pasilgom — štai kas nutiko per pastaruosius mėnesius</h3>
+          <p class="pre">„Trumpas atnaujinimas — naujos priemonės, atsiliepimai, mažas komplimentas grįžtant."</p>
+          <p class="why"><strong>Kodėl Lapsed:</strong> ši grupė neprietoldyta nuolaidoms — joms reikia sociokultūrinio ryšio. Soft promo + social proof grąžina dalį iki 5 % per kampaniją.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">6</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Ketv · 2026-05-22</span>
+            <span class="time">19:00</span>
+            <span class="type promo">Promo</span>
+            <span class="seg">Engaged 60d</span>
+          </div>
+          <h3>Vasaros pasiruošimas — UV-protect šampūnai jau lentynoje</h3>
+          <p class="pre">„Saulė, jūra, baseinas. Plaukų apsauga — be klijų, be sunkumo."</p>
+          <p class="why"><strong>Kodėl tema:</strong> peržengiame į vasaros sezoną. UV-protect kategorija — sezoninė motyvacija, padeda išleisti dar gulinčias prekes.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">7</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Antr · 2026-05-26</span>
+            <span class="time">18:00</span>
+            <span class="type educ">Edukacinis</span>
+            <span class="seg">Engaged 60d</span>
+          </div>
+          <h3>Kas ant Karolinos vonios lentynos — asmeninė vasaros rutina</h3>
+          <p class="pre">„Pirma kartą rodau, kas iš tikrųjų sėdi mano lentynoje (be filtro)."</p>
+          <p class="why"><strong>Kodėl asmeniškai:</strong> Karolinos balsas yra brand'o stipriausias kortas. „Nebandyta brand'o" formate — autentiškas, generuoja CTR 2× virš vidurkio.</p>
+        </div>
+      </article>
+
+      <article class="camp">
+        <div class="camp-num">8</div>
+        <div class="camp-body">
+          <div class="camp-meta">
+            <span class="date">Sek · 2026-05-31</span>
+            <span class="time">19:00</span>
+            <span class="type soft">Soft promo</span>
+            <span class="seg">Engaged 90d</span>
+          </div>
+          <h3>Birželio rinkinys — early access savo žmonėms</h3>
+          <p class="pre">„Naujas birželio bundle — pirma matosi tiems, kas su mumis."</p>
+          <p class="why"><strong>Kodėl Engaged 90d:</strong> platesnė auditorija (~2 744). Soft promo + early access tone — be skubėjimo, be FOMO. Užbaigia mėnesį pozityviai.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Approval -->
+  <section class="approval">
+    <h2>Patvirtinimo prašau</h2>
+    <p>Jeigu šis 30 d. grafikas tinka — startuojam Antradienį 2026-05-05 18:00 su #1 kampanija. Jei nori pakeisti laikus, segmentus, temas ar antraštes — pasakyk, paregulizuosim.</p>
+  </section>
+
+  <footer class="footer">
+    Parengė: Elaiškai · 2026-05-05
+  </footer>
+
+</div>
+</body>
+</html>
