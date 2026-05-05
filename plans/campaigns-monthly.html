@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaukų Pasaka — Kampanijų planas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background-color: #faf9f6; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: #1A1F23;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 0 56px;
+    border-bottom: 1px solid #e9e3e3;
+    margin-bottom: 56px;
+  }
+  .label {
+    font-size: 11px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: #C07682;
+    margin-bottom: 18px; display: block;
+  }
+  h1 {
+    font-size: 44px; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.1; color: #1A1F23; margin-bottom: 14px;
+  }
+  .subtitle {
+    font-size: 17px; color: #5a5358; font-weight: 400;
+    max-width: 580px; margin: 0 auto;
+  }
+  .meta {
+    display: inline-flex; gap: 16px; margin-top: 22px;
+    font-size: 13px; color: #8E7B5C;
+  }
+  .meta span { padding: 6px 14px; background: #f4eeef; border-radius: 999px; }
+
+  /* Section */
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.01em;
+    color: #1A1F23; margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 700; color: #1A1F23;
+    margin: 24px 0 12px;
+  }
+  p { margin-bottom: 14px; font-size: 15.5px; }
+  p strong { color: #1A1F23; font-weight: 600; }
+
+  /* Intro callout */
+  .intro {
+    background: #ffffff; border-left: 3px solid #D68C98;
+    padding: 24px 28px; border-radius: 4px; margin-bottom: 32px;
+  }
+  .intro p { margin-bottom: 12px; }
+  .intro p:last-child { margin-bottom: 0; }
+  .stat {
+    display: inline-block; padding: 2px 8px; background: #f7e6ea;
+    color: #C07682; border-radius: 4px; font-weight: 600; font-size: 14px;
+  }
+
+  /* Slot cards */
+  .slots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .slot {
+    background: #ffffff; border: 1px solid #ede5e5;
+    border-radius: 8px; padding: 24px; transition: transform 0.2s;
+  }
+  .slot-num {
+    width: 32px; height: 32px; border-radius: 50%; background: #D68C98;
+    color: #faf9f6; display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; margin-bottom: 14px;
+  }
+  .slot-time {
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #C07682; margin-bottom: 6px;
+  }
+  .slot-cadence { font-size: 12px; color: #8E7B5C; margin-bottom: 14px; font-style: italic; }
+  .slot h4 {
+    font-size: 17px; font-weight: 700; color: #1A1F23; margin-bottom: 8px;
+  }
+  .slot p {
+    font-size: 14px; color: #5a5358; line-height: 1.55; margin-bottom: 0;
+  }
+  .slot-audience {
+    display: inline-block; padding: 4px 10px; background: #f0e9e9;
+    color: #5a5358; border-radius: 4px; font-size: 12px;
+    margin-bottom: 12px; font-weight: 500;
+  }
+
+  /* Content mix bar */
+  .mix-bar {
+    display: flex; height: 56px; border-radius: 8px; overflow: hidden;
+    margin: 24px 0 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .mix-segment {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #faf9f6; font-weight: 600; font-size: 12px; padding: 6px;
+    text-align: center; line-height: 1.2;
+  }
+  .mix-30a { background: #C07682; flex: 30; }
+  .mix-30b { background: #D68C98; flex: 30; }
+  .mix-20  { background: #E0B252; flex: 20; }
+  .mix-10a { background: #c9d3c8; color: #1A1F23; flex: 10; }
+  .mix-10b { background: #8E7B5C; flex: 10; }
+  .mix-key { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; }
+  .mix-key span { display: inline-flex; align-items: center; gap: 6px; }
+  .mix-key i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  /* Calendar table */
+  table { width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  thead { background: #1A1F23; }
+  th { padding: 14px 18px; text-align: left; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #faf9f6; font-weight: 600; }
+  td { padding: 14px 18px; font-size: 14.5px; border-top: 1px solid #f0e9e9; }
+  td.month { font-weight: 700; color: #C07682; white-space: nowrap; }
+
+  /* Subjects rules */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rule {
+    background: #ffffff; border-radius: 8px; padding: 20px 22px;
+    border: 1px solid #ede5e5;
+  }
+  .rule.bad { border-color: #f0d4d4; }
+  .rule.good { border-color: #d4e5d2; }
+  .rule h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .rule.bad h4 { color: #b14545; }
+  .rule.good h4 { color: #4a7a48; }
+  .rule ul { list-style: none; }
+  .rule li {
+    font-size: 14px; padding: 4px 0; color: #5a5358;
+  }
+  .rule.bad li::before { content: "✗ "; color: #b14545; font-weight: 700; }
+  .rule.good li::before { content: "✓ "; color: #4a7a48; font-weight: 700; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px;
+    width: 2px; background: linear-gradient(to bottom, #D68C98, #c9d3c8);
+  }
+  .week {
+    position: relative; padding: 12px 0 12px 0; margin-bottom: 6px;
+  }
+  .week::before {
+    content: ""; position: absolute; left: -32px; top: 16px;
+    width: 20px; height: 20px; border-radius: 50%; background: #D68C98;
+    border: 4px solid #faf9f6; box-shadow: 0 0 0 1px #D68C98;
+  }
+  .week strong { display: block; font-size: 14px; color: #C07682; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .week p { font-size: 14.5px; color: #1A1F23; margin: 0; }
+
+  /* Approval */
+  .approval {
+    background: #ffffff; border: 2px solid #D68C98;
+    border-radius: 12px; padding: 28px 32px;
+  }
+  .approval h2 { color: #C07682; }
+  .approval ol { list-style: none; counter-reset: ap; padding-left: 0; }
+  .approval ol li {
+    counter-increment: ap; position: relative; padding: 14px 0 14px 44px;
+    border-bottom: 1px solid #f0e9e9; font-size: 15px; line-height: 1.55;
+  }
+  .approval ol li:last-child { border-bottom: 0; }
+  .approval ol li::before {
+    content: counter(ap); position: absolute; left: 0; top: 12px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #D68C98; color: #faf9f6;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px; padding-top: 32px; border-top: 1px solid #e9e3e3;
+    text-align: center; color: #8E7B5C; font-size: 13px;
+  }
+  .footer a { color: #C07682; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .container { padding: 32px 18px; }
+    h1 { font-size: 32px; }
+    .slots, .rules { grid-template-columns: 1fr; }
+    .meta { flex-wrap: wrap; gap: 8px; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+    .approval { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <span class="label">Strateginis dokumentas · 2026</span>
+    <h1>Plaukų Pasaka — Mėnesinis kampanijų planas</h1>
+    <p class="subtitle">Aštuonios kampanijos per mėnesį, segmentuotos pagal įsitraukimo intensyvumą ir pirkimo elgseną. Edukacija keičiasi su promo — atstato auditoriją ir konvertuoja kartu.</p>
+    <div class="meta">
+      <span>📅 Gegužė–Gruodis 2026</span>
+      <span>📨 8 siuntimai/mėn.</span>
+      <span>👥 6 segmentai</span>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section>
+    <h2>Kontekstas</h2>
+    <div class="intro">
+      <p>Per pastaruosius 9 mėnesius Plaukų Pasaka siuntė <span class="stat">~16 kampanijų</span> (≈1,8/mėn.), iš kurių <span class="stat">22 % „all contacts"</span>. Atidarymai krito nuo 33 % iki 26 %, paspaudimai — nuo 0,64 % iki 0,45 %.</p>
+      <p>Priežastis aiški: ta pati auditorija gauna tą patį turinį. Norim tai apversti su <strong>fiksuotu ritmišku grafiku</strong> ir <strong>segmentuotomis siuntimo</strong>.</p>
+      <p>Tikslas — ne pajamų skaičiai, o mechanika. Kai struktūra dirbs, pajamos seka.</p>
+    </div>
+  </section>
+
+  <!-- Slot grid -->
+  <section>
+    <h2>Savaitinis grafikas — 4 fiksuoti slot'ai</h2>
+    <p style="color:#5a5358;font-size:15px;margin-bottom:24px;">Vakarinė atidarymo banga (18–20 val. — geriausia mada/wellness branchoje) + savaitgalio narso valanda telefone.</p>
+
+    <div class="slots">
+      <div class="slot">
+        <div class="slot-num">1</div>
+        <div class="slot-time">Antradienis · 18:00</div>
+        <div class="slot-cadence">Kas savaitę</div>
+        <div class="slot-audience">Aktyvūs 60 d. (~1500–2000)</div>
+        <h4>Edukacinis</h4>
+        <p>Karolinos balsas, ingredientų gidai, K-beauty rutinos. Atstato įsitraukimo signalus — formulė, kuri padarė 03-27 „Kodėl klientės sugrįžta" 54 % atidarymų.</p>
+      </div>
+
+      <div class="slot">
+        <div class="slot-num">2</div>
+        <div class="slot-time">Ketvirtadienis · 19:00</div>
+        <div class="slot-cadence">Kas savaitę</div>
+        <div class="slot-audience">Aktyvūs 60 d.</div>
+        <h4>Produkto / Promo</h4>
+        <p>Nauji modeliai, akcijos, sezoninės nuolaidos. Konvertuoja, bet ne dominuoja.</p>
+      </div>
+
+      <div class="slot">
+        <div class="slot-num">3</div>
+        <div class="slot-time">Penktadienis · 11:00</div>
+        <div class="slot-cadence">Kas antrą savaitę</div>
+        <div class="slot-audience">Pirkėjos (~1 184)</div>
+        <h4>Cross-sell / VIP</h4>
+        <p>SKU porų logika — „šampūnas → kondicionierius", „ampulė → serumas". 3×+ pirkėjai gauna early access naujiems produktams.</p>
+      </div>
+
+      <div class="slot">
+        <div class="slot-num">4</div>
+        <div class="slot-time">Sekmadienis · 19:00</div>
+        <div class="slot-cadence">Kas antrą savaitę</div>
+        <div class="slot-audience">Atvėsę 60–180 d.</div>
+        <h4>Soft promo + Social proof</h4>
+        <p>Re-engagement bandymas. Klientų atsiliepimai, prieš/po vaizdai, švelnūs pasiūlymai be skubėjimo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content mix -->
+  <section>
+    <h2>Turinio mix per ketvirtį</h2>
+    <p style="color:#5a5358;font-size:15px;margin-bottom:0;">Edukacija ir promo veikia sinergiškai — vienas atstato auditoriją, kitas konvertuoja.</p>
+    <div class="mix-bar">
+      <div class="mix-segment mix-30a">Edukacinis<br/>30 %</div>
+      <div class="mix-segment mix-30b">Promo /<br/>nuolaidos<br/>30 %</div>
+      <div class="mix-segment mix-20">Naujienos /<br/>Bundle 20 %</div>
+      <div class="mix-segment mix-10a">Social<br/>10 %</div>
+      <div class="mix-segment mix-10b">Re-engage<br/>10 %</div>
+    </div>
+  </section>
+
+  <!-- Seasonal calendar -->
+  <section>
+    <h2>Sezoninis kalendorius</h2>
+    <table>
+      <thead>
+        <tr><th>Mėnuo</th><th>Pagrindinis akcentas</th><th>Galimi siuntimai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="month">Gegužė</td><td>Motinos diena · pavasaris</td><td>Mom rinkiniai · pavasario plaukų rutina</td></tr>
+        <tr><td class="month">Birželis</td><td>Joninės · vasaros plaukų apsauga</td><td>UV-protect šampūnai · vasaros maskos</td></tr>
+        <tr><td class="month">Liepa</td><td>Atostogų plaukų atstatymas</td><td>Travel-size mini · post-beach rituals</td></tr>
+        <tr><td class="month">Rugpjūtis</td><td>Atsigaivinimas · grįžimas į rutiną</td><td>Sezono pradžia · K-beauty refresh</td></tr>
+        <tr><td class="month">Rugsėjis</td><td>Atgal į mokslus</td><td>Studentų akcijos · greitos rutinos</td></tr>
+        <tr><td class="month">Spalis</td><td>Halloween skin-glow</td><td>Veido glow + plaukų shine</td></tr>
+        <tr><td class="month">Lapkritis</td><td>Black Friday + Christmas pradžia</td><td>BFCM big sale · advent kalendorius</td></tr>
+        <tr><td class="month">Gruodis</td><td>Christmas + dovanos</td><td>Gift sets · last-minute pickup</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Subject lines rules -->
+  <section>
+    <h2>Antraščių taisyklės</h2>
+    <p style="color:#5a5358;font-size:15px;margin-bottom:24px;">Per audit'ą matėme, kad spam-tipo pažadai kenkia pristatomumui ir generuoja unsub'us. Pereinam į švaresnę, brandintą stilistiką.</p>
+    <div class="rules">
+      <div class="rule bad">
+        <h4>Atsisakome</h4>
+        <ul>
+          <li>„Užauga 10 cm per naktį" tipo pažadų</li>
+          <li>CAPS LOCK + 🚨🔥</li>
+          <li>„LAST CHANCE!!!"</li>
+          <li>Skubėjimo manipuliacijų</li>
+        </ul>
+      </div>
+      <div class="rule good">
+        <h4>Naudojame</h4>
+        <ul>
+          <li>Klausimą: „Ar naudoji teisingai?"</li>
+          <li>Numerius: „3 produktai, kurie tinka"</li>
+          <li>Konkretų benefit'ą</li>
+          <li>Asmeniškumą: „Karolinos rinkinys"</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:24px;color:#5a5358;font-size:14.5px;">A/B testavimas — kiekvienam siuntimui 2 variantai (paskata vs. smalsumas, emoji vs. švarus, 1-asis vs. 2-asis asmuo).</p>
+  </section>
+
+  <!-- Launch timeline -->
+  <section>
+    <h2>Pirmojo mėnesio paleidimas</h2>
+    <div class="timeline">
+      <div class="week">
+        <strong>1 savaitė</strong>
+        <p>Sukurti 3 trūkstamus segmentus per UI (Engaged 60d, Lapsed, Cold). Pirmoji kampanija į Engaged 60d (Antradienis 18:00).</p>
+      </div>
+      <div class="week">
+        <strong>2 savaitė</strong>
+        <p>Pridedam Penktadienio cross-sell pirkėjoms. A/B testas antroms antraštėms.</p>
+      </div>
+      <div class="week">
+        <strong>3 savaitė</strong>
+        <p>Pridedam Sekmadienio re-engagement. Pirma Lapsed 60–180d kampanija.</p>
+      </div>
+      <div class="week">
+        <strong>4 savaitė</strong>
+        <p>Pilnas grafikas — 8 siuntimai. Pirmoji mėnesio rezultatų analizė ir koregavimai.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approval -->
+  <section>
+    <div class="approval">
+      <h2>Ko prašau iš Tavęs prieš pradedant</h2>
+      <p style="color:#5a5358;font-size:15px;margin-bottom:18px;">Po Tavo atsakymo paleidžiame pirmąją kampaniją per ~3–5 dienas.</p>
+      <ol>
+        <li><strong>Patvirtink (arba atmesk) grafiką</strong> — Antr 18 / Ketv 19 / Penkt 11 (kas 2 sav.) / Sek 19 (kas 2 sav.). Jei nori kitokio dažnio ar laikų — pasakyk konkrečiai.</li>
+        <li><strong>Patvirtink turinio mix proporcijas</strong> (Eduk 30 % · Promo 30 % · Naujienos 20 % · Social 10 % · Re-engage 10 %). Galim koreguoti į labiau edukacinį arba promo.</li>
+        <li><strong>Patvirtink siuntėją</strong> „Karolina | Plaukų pasaka" + info@plaukupasaka.lt. Per audit matėme 22 kampanijos ėjo iš generinio „Plaukų pasaka" — visus migruoti į asmeninį.</li>
+        <li><strong>Sezoninės naujienos</strong> — ar yra konkrečių momentų, kuriuos nori tikrai pamatyti grafike (specifinis produkto launch'as, asmeninis pasakojimas, kolaboracija)?</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Susiję dokumentai: <strong>SEGMENTS.md</strong> (segmentų sąlygos), <strong>audit/PLAN.md</strong> (90 dienų planas), <strong>audit/AUTOMATIONS-PLAN.md</strong> (srautai).</p>
+    <p style="margin-top:8px;">Parengė: Elaiškai · Lukas Vincevičius · 2026-05-04</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
