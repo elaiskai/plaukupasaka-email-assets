@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaukų Pasaka — Birželio 2026 Kampanijų Planas</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+    background: #f5f0eb;
+    color: #1A1F23;
+    padding: 32px 16px;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: #C07682;
+    color: #faf9f6;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+  }
+  .header-top { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .brand-dot { width: 12px; height: 12px; background: #E0B252; border-radius: 50%; flex-shrink: 0; }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-sub { font-size: 14px; opacity: 0.75; margin-top: 4px; }
+  .header-meta {
+    display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .header-meta span {
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* Diagnozė */
+  .section-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: #C07682;
+    margin-bottom: 12px; margin-top: 28px;
+  }
+  .diagnosis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+  @media (max-width: 600px) { .diagnosis-grid { grid-template-columns: 1fr; } }
+  .diag-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-left: 4px solid #D68C98;
+  }
+  .diag-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #1A1F23; }
+  .diag-card p { font-size: 13px; color: #555; line-height: 1.5; }
+  .diag-card .stat { font-size: 22px; font-weight: 700; color: #C07682; margin-bottom: 4px; }
+
+  /* Formulė */
+  .formula-box {
+    background: #faf9f6;
+    border: 1.5px solid #D68C98;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 8px;
+  }
+  .formula-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #C07682; text-transform: uppercase; letter-spacing: 0.8px; }
+  .formula-steps { display: flex; gap: 0; flex-wrap: wrap; }
+  .formula-step {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: #1A1F23;
+    margin-bottom: 8px; margin-right: 8px;
+  }
+  .formula-step .arrow { color: #D68C98; font-size: 16px; }
+  .fstep-badge {
+    background: #D68C98; color: #fff;
+    border-radius: 6px; padding: 4px 10px;
+    font-size: 12px; font-weight: 700;
+  }
+
+  /* Campaign cards */
+  .campaigns { display: flex; flex-direction: column; gap: 10px; }
+  .camp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .camp-date {
+    background: #D68C98;
+    color: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 16px 8px;
+    text-align: center;
+  }
+  .camp-date .day { font-size: 22px; font-weight: 700; line-height: 1; }
+  .camp-date .month { font-size: 10px; font-weight: 600; text-transform: uppercase; opacity: 0.85; margin-top: 2px; }
+  .camp-date .weekday { font-size: 10px; opacity: 0.7; margin-top: 4px; }
+  .camp-body { padding: 14px 18px; }
+  .camp-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .camp-num { font-size: 11px; font-weight: 700; color: #C07682; background: #fde8ec; border-radius: 4px; padding: 2px 8px; }
+  .camp-title { font-size: 15px; font-weight: 700; color: #1A1F23; }
+  .camp-details { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .camp-detail { font-size: 12px; color: #666; display: flex; align-items: center; gap: 4px; }
+  .camp-detail strong { color: #1A1F23; font-weight: 600; }
+  .camp-subject {
+    font-size: 12px; color: #444; font-style: italic;
+    margin-top: 6px; padding-top: 6px; border-top: 1px solid #f0eae8;
+    line-height: 1.4;
+  }
+  .camp-subject span { font-weight: 600; font-style: normal; color: #888; margin-right: 4px; }
+  .badge-code {
+    background: #E0B252; color: #1A1F23;
+    font-size: 11px; font-weight: 700;
+    border-radius: 4px; padding: 2px 8px;
+    font-family: monospace;
+  }
+  .badge-seg {
+    background: #e8f5e9; color: #2e7d32;
+    font-size: 11px; font-weight: 600;
+    border-radius: 4px; padding: 2px 8px;
+  }
+  .badge-seg-narrow {
+    background: #fff3cd; color: #856404;
+    font-size: 11px; font-weight: 600;
+    border-radius: 4px; padding: 2px 8px;
+  }
+  .badge-edu {
+    background: #e3f2fd; color: #1565c0;
+    font-size: 11px; font-weight: 600;
+    border-radius: 4px; padding: 2px 8px;
+  }
+
+  /* Compare table */
+  .compare {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .compare table { width: 100%; border-collapse: collapse; }
+  .compare th {
+    padding: 12px 16px; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px;
+  }
+  .compare th:first-child { background: #fde8ec; color: #C07682; text-align: left; }
+  .compare th:last-child { background: #e8f5e9; color: #2e7d32; text-align: left; }
+  .compare td { padding: 10px 16px; font-size: 13px; border-top: 1px solid #f5f0eb; vertical-align: top; line-height: 1.4; }
+  .compare td:first-child { color: #999; }
+  .compare td:last-child { color: #1A1F23; font-weight: 500; }
+
+  /* KPI targets */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 600px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+  .kpi-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .kpi-now { font-size: 11px; color: #bbb; margin-bottom: 2px; }
+  .kpi-target { font-size: 24px; font-weight: 700; color: #C07682; }
+  .kpi-label { font-size: 11px; color: #888; margin-top: 4px; }
+  .kpi-was { font-size: 11px; color: #ccc; margin-top: 2px; }
+
+  /* Voice box */
+  .voice-box {
+    background: #C07682;
+    color: #faf9f6;
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .voice-box h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 12px; }
+  .voice-box p { font-size: 14px; line-height: 1.7; font-style: italic; }
+  .voice-box .voice-footer { margin-top: 12px; font-size: 13px; opacity: 0.7; }
+
+  footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="brand-dot"></div>
+      <h1>Plaukų Pasaka — Birželio 2026 Kampanijų Planas</h1>
+    </div>
+    <div class="header-sub">Paruošta 2026-05-31 · Pagrįsta gegužės kampanijų analize</div>
+    <div class="header-meta">
+      <span>8 kampanijos</span>
+      <span>Birž. 3 – Birž. 27</span>
+      <span>~3,900 prenumeratorių</span>
+      <span>Ant + Pen, 9–11 LT</span>
+    </div>
+  </div>
+
+  <!-- Diagnozė -->
+  <div class="section-title">Kodėl gegužė nekonvertavo</div>
+  <div class="diagnosis-grid">
+    <div class="diag-card">
+      <div class="stat">0.07–0.66%</div>
+      <h3>Click rate — pagrindinis signalas</h3>
+      <p>Atidarymai geri (27–35%), bet click'ai tragiški. Žmonės skaitė ir išėjo. Nėra priežasties spausti.</p>
+    </div>
+    <div class="diag-card">
+      <div class="stat">1.53%</div>
+      <h3>Geriausias istorinis CTO</h3>
+      <p>BF tekstinis (Feb 17) — tekstinis laiškas + urgency + vienas produktas. Tai yra formulė.</p>
+    </div>
+    <div class="diag-card">
+      <div class="stat">1,459</div>
+      <h3>C6 pasiektas sąrašas vietoj 3,900</h3>
+      <p>Per siauri segmentai nulaužia pasiekiamumą. Kol click'ai žemi — siųsti visiems.</p>
+    </div>
+    <div class="diag-card">
+      <div class="stat">TOP 5</div>
+      <h3>Karolinos bestseller'iai nenaudojami</h3>
+      <p>Rožinė ampulė, pilingas, proteinų kaukė — klientų mėgstamiausi. Gegužę siūlyta CP-1/OLAPLEX/Masil.</p>
+    </div>
+  </div>
+  <div class="diagnosis-grid" style="margin-top:12px;">
+    <div class="diag-card" style="border-color:#E0B252;">
+      <h3>Edukacija be pirkimo trigerio</h3>
+      <p>Klientai mėgo turinį, bet nėra kodo ar urgency → nėra priežasties pirkti šiandien vietoj rytoj.</p>
+    </div>
+    <div class="diag-card" style="border-color:#E0B252;">
+      <h3>Per daug produktų viename laiške</h3>
+      <p>C5 turėjo 8 produktus. Pasirinkimo paradoksas — kuo daugiau, tuo mažiau žmonių perka.</p>
+    </div>
+  </div>
+
+  <!-- Formulė -->
+  <div class="section-title" style="margin-top:24px;">Birželio formulė</div>
+  <div class="formula-box">
+    <h3>Kiekvienas laiškas = ši seka</h3>
+    <div class="formula-steps">
+      <div class="formula-step"><div class="fstep-badge">1 produktas</div><div class="arrow">→</div></div>
+      <div class="formula-step"><div class="fstep-badge">Karolinos istorija</div><div class="arrow">→</div></div>
+      <div class="formula-step"><div class="fstep-badge">Metafora / edukacija</div><div class="arrow">→</div></div>
+      <div class="formula-step"><div class="fstep-badge">Kodas arba urgency</div><div class="arrow">→</div></div>
+      <div class="formula-step"><div class="fstep-badge">Visi ~3,900</div></div>
+    </div>
+  </div>
+
+  <!-- Campaigns -->
+  <div class="section-title" style="margin-top:24px;">Kampanijų kalendorius</div>
+  <div class="campaigns">
+
+    <div class="camp-card">
+      <div class="camp-date">
+        <div class="day">03</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Antradienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num">C1</span>
+          <div class="camp-title">Rožinė ampulė — žingsnis, kurį praleidžia 90%</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">🌸 <strong>Hero:</strong> Rožinė ampulė (#1 bestseller)</div>
+          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Karolina, ar man normalu, kad plaukai tokie sausi po plovimo?"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-date" style="background:#c48591;">
+        <div class="day">06</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Penktadienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num">C2</span>
+          <div class="camp-title">Pilingas — „klientė manė, kad byra dėl streso"</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">🌿 <strong>Hero:</strong> Galvos odos pilingas su pipirmėte (#2)</div>
+          <span class="badge-code">GROZIS 7%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Tavo plaukai byra ne dėl to, ką galvoji"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-date">
+        <div class="day">10</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Antradienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num">C3</span>
+          <div class="camp-title">Proteinų kaukė — 3 minutės, kurios pakeitė jos plaukus</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">💊 <strong>Hero:</strong> Proteinų kaukė 12,5 ml (#3)</div>
+          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„3 minutės – tiek reikia, kad plaukai pajustų skirtumą"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-date" style="background:#c48591;">
+        <div class="day">13</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Penktadienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num">C4</span>
+          <div class="camp-title">Mėtinis šampūnas — vasaros rutinos pagrindas</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">🌱 <strong>Hero:</strong> Mėtinis šampūnas (#4)</div>
+          <span class="badge-code">GROZIS 7%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Vasaros karščiai + galvos oda = vienas šampūnas sprendžia abu"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-date">
+        <div class="day">17</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Antradienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num">C5</span>
+          <div class="camp-title">Lakštinės kaukės — 5 minučių odos ritualas vasarai</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">🩷 <strong>Hero:</strong> Lakštinės veido kaukės (#5) + Karolinos foto</div>
+          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„5 minutės prieš miegą – štai ką aš naudoju kiekvieną vakarą"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card" style="border: 2px solid #E0B252;">
+      <div class="camp-date" style="background:#E0B252; color:#1A1F23;">
+        <div class="day">20</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Penktadienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num" style="background:#fff3cd; color:#856404;">C6</span>
+          <div class="camp-title">„Mano TOP 3 šiai vasarai" — Karolinos mini bundle</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">✨ <strong>Hero:</strong> Rožinė ampulė + Pilingas + Mėtinis šampūnas</div>
+          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Jei turėčiau pasirinkti tik 3 produktus šiai vasarai - štai jie"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-date" style="background:#5c8fa6;">
+        <div class="day">24</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Antradienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num" style="background:#e3f2fd; color:#1565c0;">C7</span>
+          <div class="camp-title">Mitas: „Brangūs plaukai = geri plaukai" — laužom</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">🔍 <strong>Hero:</strong> Edu + proteinų kaukė arba pilingas</div>
+          <span class="badge-edu">Edukacinis</span>
+          <span class="badge-seg-narrow">Aktyvūs 60d</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Melas Nr. 1 apie plaukų priežiūrą, kuriuo vis dar tiki"
+        </div>
+      </div>
+    </div>
+
+    <div class="camp-card" style="border: 2px solid #C07682;">
+      <div class="camp-date" style="background:#9d5f6a;">
+        <div class="day">27</div>
+        <div class="month">Birž</div>
+        <div class="weekday">Penktadienis</div>
+      </div>
+      <div class="camp-body">
+        <div class="camp-header">
+          <span class="camp-num" style="background:#fde8ec; color:#C07682;">C8</span>
+          <div class="camp-title">Birželio pabaiga — „modeliai eina, atsargos tirpsta"</div>
+        </div>
+        <div class="camp-details">
+          <div class="camp-detail">⚡ <strong>Hero:</strong> Rožinė ampulė arba mažiausiai likusio TOP 5</div>
+          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-seg">Visi ~3,900</span>
+        </div>
+        <div class="camp-subject">
+          <span>Subject:</span>„Birželis baigiasi – ir ampulių liko tik keliolika"
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Gegužė vs Birželis -->
+  <div class="section-title" style="margin-top:28px;">Kas keičiasi</div>
+  <div class="compare">
+    <table>
+      <thead>
+        <tr>
+          <th>❌ Gegužė (neveikė)</th>
+          <th>✅ Birželis (formulė)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>6–8 produktai viename laiške</td>
+          <td>1 hero produktas + viena aiški istorija</td>
+        </tr>
+        <tr>
+          <td>Edukacija be pirkimo priežasties</td>
+          <td>Istorija → produktas → kodas (kiekvieną kartą)</td>
+        </tr>
+        <tr>
+          <td>Siauros auditorijos (C6: tik 1,459)</td>
+          <td>Visi ~3,900 (C7 išimtis: aktyvūs 60d)</td>
+        </tr>
+        <tr>
+          <td>CP-1, OLAPLEX, Masil — mažiau žinomi</td>
+          <td>Karolinos TOP 5 bestseller'iai prioritetas</td>
+        </tr>
+        <tr>
+          <td>Jokio kodo turinio laiškuose</td>
+          <td>NORIU 20% arba GROZIS 7% kiekviename</td>
+        </tr>
+        <tr>
+          <td>Generic headers „01 · 02 · 03"</td>
+          <td>Karolinos balsas: klientės klausimas → atsakymas</td>
+        </tr>
+        <tr>
+          <td>Vakarinis siuntimas (rizika)</td>
+          <td>9:00–11:00 LT, Ant/Pen (ryte, per savaitę)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KPI -->
+  <div class="section-title" style="margin-top:28px;">KPI tikslai birželiui</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-now">Gegužės vidurkis</div>
+      <div class="kpi-target">0.8%+</div>
+      <div class="kpi-label">Click rate</div>
+      <div class="kpi-was">Buvo: 0.07–0.66%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-now">Gegužės vidurkis</div>
+      <div class="kpi-target">3,500+</div>
+      <div class="kpi-label">Pasiekiamumas</div>
+      <div class="kpi-was">Buvo: 1,459–4,174</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-now">Kampanijomis €855</div>
+      <div class="kpi-target">€1,500+</div>
+      <div class="kpi-label">Pajamos / mėn</div>
+      <div class="kpi-was">Gegužė iš kampanijų</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-now">Dabar ~3%</div>
+      <div class="kpi-target">5%+</div>
+      <div class="kpi-label">CTO (Click-to-Open)</div>
+      <div class="kpi-was">BF tekstinis: 4.3%</div>
+    </div>
+  </div>
+
+  <!-- Voice reminder -->
+  <div class="section-title" style="margin-top:28px;">Karolinos balsas — privaloma struktūra</div>
+  <div class="voice-box">
+    <h3>Kiekvieno laiško pradžia</h3>
+    <p>
+      „Labas,<br><br>
+      Vakar sulaukiau žinutės, kurią girdžiu bent kartą per savaitę:<br>
+      [klientės klausimas citata]<br><br>
+      [Paaiškinimas su metafora — „Tai tas pats, kaip..."]<br><br>
+      [Produktas kaip natūralus sprendimas, ne reklama]<br><br>
+      Pabandyk — mano mėgstamiausias šiam sezonui:"
+    </p>
+    <div class="voice-footer">→ CTA mygtukas → P.S. (asmeninis) → Iki susitikimo, Karolina</div>
+  </div>
+
+  <footer style="margin-top:40px;">
+    Plaukų Pasaka · Birželio 2026 planas · eLaiškai agentūra · 2026-05-31
+  </footer>
+
+</div>
+</body>
+</html>
