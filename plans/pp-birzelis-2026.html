@@ -133,6 +133,16 @@
     font-size: 11px; font-weight: 600;
     border-radius: 4px; padding: 2px 8px;
   }
+  .badge-deal {
+    background: #fce4ec; color: #c62828;
+    font-size: 11px; font-weight: 700;
+    border-radius: 4px; padding: 2px 8px;
+  }
+  .badge-new {
+    background: #e8f5e9; color: #1b5e20;
+    font-size: 11px; font-weight: 700;
+    border-radius: 4px; padding: 2px 8px;
+  }
 
   /* Compare table */
   .compare {
@@ -178,6 +188,17 @@
   .voice-box p { font-size: 14px; line-height: 1.7; font-style: italic; }
   .voice-box .voice-footer { margin-top: 12px; font-size: 13px; opacity: 0.7; }
 
+  /* Karolinos pastabos */
+  .karolina-note {
+    background: #fff8e1;
+    border: 1.5px solid #E0B252;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 8px;
+  }
+  .karolina-note h3 { font-size: 12px; font-weight: 700; color: #856404; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .karolina-note p { font-size: 13px; color: #5d4037; line-height: 1.6; font-style: italic; }
+
   footer { text-align: center; font-size: 12px; color: #bbb; margin-top: 40px; }
 </style>
 </head>
@@ -190,13 +211,27 @@
       <div class="brand-dot"></div>
       <h1>Plaukų Pasaka — Birželio 2026 Kampanijų Planas</h1>
     </div>
-    <div class="header-sub">Paruošta 2026-05-31 · Pagrįsta gegužės kampanijų analize</div>
+    <div class="header-sub">Paruošta 2026-05-31 · Atnaujinta pagal Karolinos komentarus</div>
     <div class="header-meta">
       <span>8 kampanijos</span>
       <span>Birž. 3 – Birž. 27</span>
       <span>~3,900 prenumeratorių</span>
       <span>Ant + Pen, 9–11 LT</span>
     </div>
+  </div>
+
+  <!-- Karolinos pastabos -->
+  <div class="section-title">Karolinos pataisymai</div>
+  <div class="karolina-note">
+    <h3>Pakeitimai pagal kliento komentarus (2026-05-31)</h3>
+    <p>
+      Kodas NORIU pakeistas į <strong>VASARA -20%</strong> visose kampanijose. ·
+      C3: proteinų kaukė pakeista į <strong>Daeng Medaus kaukę</strong>. ·
+      C4: kodas GROZIS pakeistas į <strong>LOJALI -15%</strong>. ·
+      C5: <strong>2+1 deal</strong> lakštinėms kaukėms (Jigott + Biodance) + veido priežiūros produktai. ·
+      C7: <strong>Daeng violetinė kaukė</strong> (naujiena). ·
+      Karolinos prašymas: tekstuose akcentuoti klientų <strong>problemas</strong>, kuo mažiau jaustis AI.
+    </p>
   </div>
 
   <!-- Diagnozė -->
@@ -241,7 +276,7 @@
     <div class="formula-steps">
       <div class="formula-step"><div class="fstep-badge">1 produktas</div><div class="arrow">→</div></div>
       <div class="formula-step"><div class="fstep-badge">Karolinos istorija</div><div class="arrow">→</div></div>
-      <div class="formula-step"><div class="fstep-badge">Metafora / edukacija</div><div class="arrow">→</div></div>
+      <div class="formula-step"><div class="fstep-badge">Klientės problema</div><div class="arrow">→</div></div>
       <div class="formula-step"><div class="fstep-badge">Kodas arba urgency</div><div class="arrow">→</div></div>
       <div class="formula-step"><div class="fstep-badge">Visi ~3,900</div></div>
     </div>
@@ -264,7 +299,7 @@
         </div>
         <div class="camp-details">
           <div class="camp-detail">🌸 <strong>Hero:</strong> Rožinė ampulė (#1 bestseller)</div>
-          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-code">VASARA 20%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -304,11 +339,11 @@
       <div class="camp-body">
         <div class="camp-header">
           <span class="camp-num">C3</span>
-          <div class="camp-title">Proteinų kaukė — 3 minutės, kurios pakeitė jos plaukus</div>
+          <div class="camp-title">Daeng Medaus kaukė — 3 minutės, kurios pakeitė jos plaukus</div>
         </div>
         <div class="camp-details">
-          <div class="camp-detail">💊 <strong>Hero:</strong> Proteinų kaukė 12,5 ml (#3)</div>
-          <span class="badge-code">NORIU 20%</span>
+          <div class="camp-detail">🍯 <strong>Hero:</strong> Daeng Gi Meo Ri Medaus plaukų kaukė</div>
+          <span class="badge-code">VASARA 20%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -330,7 +365,7 @@
         </div>
         <div class="camp-details">
           <div class="camp-detail">🌱 <strong>Hero:</strong> Mėtinis šampūnas (#4)</div>
-          <span class="badge-code">GROZIS 7%</span>
+          <span class="badge-code">LOJALI -15%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -348,11 +383,13 @@
       <div class="camp-body">
         <div class="camp-header">
           <span class="camp-num">C5</span>
-          <div class="camp-title">Lakštinės kaukės — 5 minučių odos ritualas vasarai</div>
+          <div class="camp-title">Lakštinės kaukės 2+1 — ir visas vasaros veido ritualas</div>
         </div>
         <div class="camp-details">
-          <div class="camp-detail">🩷 <strong>Hero:</strong> Lakštinės veido kaukės (#5) + Karolinos foto</div>
-          <span class="badge-code">NORIU 20%</span>
+          <div class="camp-detail">🩷 <strong>Hero:</strong> Jigott + Biodance lakštinės kaukės (2+1 deal)</div>
+          <div class="camp-detail">+ veido pilingas, prausiklis, serumas, veido kremas</div>
+          <span class="badge-deal">2+1 DEAL</span>
+          <span class="badge-code">VASARA 20%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -374,7 +411,7 @@
         </div>
         <div class="camp-details">
           <div class="camp-detail">✨ <strong>Hero:</strong> Rožinė ampulė + Pilingas + Mėtinis šampūnas</div>
-          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-code">VASARA 20%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -384,23 +421,24 @@
     </div>
 
     <div class="camp-card">
-      <div class="camp-date" style="background:#5c8fa6;">
+      <div class="camp-date" style="background:#7b5ea7;">
         <div class="day">24</div>
         <div class="month">Birž</div>
         <div class="weekday">Antradienis</div>
       </div>
       <div class="camp-body">
         <div class="camp-header">
-          <span class="camp-num" style="background:#e3f2fd; color:#1565c0;">C7</span>
-          <div class="camp-title">Mitas: „Brangūs plaukai = geri plaukai" — laužom</div>
+          <span class="camp-num" style="background:#ede7f6; color:#4a148c;">C7</span>
+          <div class="camp-title">Daeng violetinė kaukė — naujiena, kurios laukėt</div>
         </div>
         <div class="camp-details">
-          <div class="camp-detail">🔍 <strong>Hero:</strong> Edu + proteinų kaukė arba pilingas</div>
+          <div class="camp-detail">💜 <strong>Hero:</strong> <a href="https://plaukupasaka.lt/produktas/daeng-gi-meo-ri-gyvybiskai-svarbi-maitinamoji-plauku-kauke-120-ml/" style="color:#7b5ea7;">Daeng Gi Meo Ri Gyvybiškai svarbi maitinamoji plaukų kaukė 120ml</a></div>
+          <span class="badge-new">NAUJIENA</span>
           <span class="badge-edu">Edukacinis</span>
           <span class="badge-seg-narrow">Aktyvūs 60d</span>
         </div>
         <div class="camp-subject">
-          <span>Subject:</span>„Melas Nr. 1 apie plaukų priežiūrą, kuriuo vis dar tiki"
+          <span>Subject:</span>„Daeng violetinė kaukė pagaliau čia — ir ji daro tai, ko kitos negali"
         </div>
       </div>
     </div>
@@ -418,7 +456,7 @@
         </div>
         <div class="camp-details">
           <div class="camp-detail">⚡ <strong>Hero:</strong> Rožinė ampulė arba mažiausiai likusio TOP 5</div>
-          <span class="badge-code">NORIU 20%</span>
+          <span class="badge-code">VASARA 20%</span>
           <span class="badge-seg">Visi ~3,900</span>
         </div>
         <div class="camp-subject">
@@ -458,7 +496,7 @@
         </tr>
         <tr>
           <td>Jokio kodo turinio laiškuose</td>
-          <td>NORIU 20% arba GROZIS 7% kiekviename</td>
+          <td>VASARA 20%, GROZIS 7%, LOJALI -15% — kiekvienam laiškui savo kodas</td>
         </tr>
         <tr>
           <td>Generic headers „01 · 02 · 03"</td>
@@ -467,6 +505,10 @@
         <tr>
           <td>Vakarinis siuntimas (rizika)</td>
           <td>9:00–11:00 LT, Ant/Pen (ryte, per savaitę)</td>
+        </tr>
+        <tr>
+          <td>AI skambantis tekstas</td>
+          <td>Klientų problemų kalba — žmogiška, Karolinos balsas</td>
         </tr>
       </tbody>
     </table>
@@ -508,16 +550,17 @@
     <p>
       „Labas,<br><br>
       Vakar sulaukiau žinutės, kurią girdžiu bent kartą per savaitę:<br>
-      [klientės klausimas citata]<br><br>
+      [klientės klausimas citata — konkreti problema]<br><br>
       [Paaiškinimas su metafora — „Tai tas pats, kaip..."]<br><br>
       [Produktas kaip natūralus sprendimas, ne reklama]<br><br>
       Pabandyk — mano mėgstamiausias šiam sezonui:"
     </p>
     <div class="voice-footer">→ CTA mygtukas → P.S. (asmeninis) → Iki susitikimo, Karolina</div>
+    <div class="voice-footer" style="margin-top:8px; color:#ffe0b2;">⚠️ Karolinos prašymas: tekstai turi skambėti žmogiškai — ne AI. Akcentuoti klientų konkrečias problemas.</div>
   </div>
 
   <footer style="margin-top:40px;">
-    Plaukų Pasaka · Birželio 2026 planas · eLaiškai agentūra · 2026-05-31
+    Plaukų Pasaka · Birželio 2026 planas · eLaiškai agentūra · Atnaujinta 2026-05-31
   </footer>
 
 </div>
